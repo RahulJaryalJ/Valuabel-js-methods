@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="items"></div>
+        <form>
+            <input type="number" id="no">
+            <button type="submit">sub</button>
+        </form>
+        <div class="btns"></div>
+    </div>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "apple"
+            },
+            {
+                id: 1,
+                name: "dog"
+            },
+            {
+                id: 1,
+                name: "cate"
+            },
+            {
+                id: 2,
+                name: "banana"
+            },
+            {
+                id: 2,
+                name: "racist"
+            },
+            {
+                id: 3,
+                name: "chilly"
+            },
+            {
+                id: 3,
+                name: "chilly"
+            },
+            {
+                id: 3,
+                name: "kuku"
+            }
+        ];
+
+        const buttons = [
+            {
+                id: 1,
+                name: "Prev"
+            },
+            {
+                id: 2,
+                name: 2
+            },
+            {
+                id: 3,
+                name: 3
+            },
+            {
+                id: 4,
+                name: "Next"
+            }
+
+        ]
+
+
+        //     window.addEventListener("DOMContentLoaded", ()=>{
+
+        //         function myFunction(a) {
+        //            console.log("btnShw");
+        //            // display(a);
+        //        }
+
+        // })
+
+        let current = 0;
+
+        let items = new Set(products.map((item) => {
+            return item;
+        })
+        )
+        const data = [...items]
+
+        // const max = data;
+        // console.log(max);
+
+
+        // console.log(fItem);
+        const form = document.querySelector("form")
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const value = document.querySelector("#no")
+            let input = Number(value.value);
+            let fItem = data.filter((item) => {
+                return item.id == input;
+            });
+            display(fItem);
+
+        })
+        //
+        function display(a) {
+            // console.log(a);
+            const dItems = document.querySelector(".items")
+            dItems.innerHTML = a.map((item) => {
+                const { id, name } = item;
+                return `<div class="hi"  > ${name} </div>`
+            }).join('');
+        }
+
+        const btns = [...new Set(buttons.map((btn) => {
+            return btn;
+        }))
+        ];
+
+        const bottn = document.querySelector(".btns");
+
+        bottn.innerHTML = btns.map((btn) => {
+            const { id, name } = btn;
+            return (
+                `<button class='btn'>${name}</button>`)
+        }).join("");
+
+        const dBtns = document.querySelectorAll(".btn")
+
+        // console.log(dBtns);
+        const aBtns = Array.from(dBtns)
+
+        // console.log(aBtns);
+        let length = aBtns.length - 1;
+        // console.log(length);
+        aBtns.forEach((item, index, arr) => {
+            // console.log(index);
+
+
+            // console.log(item,index,arr);
+            item.addEventListener("click", () => {
+
+                let userInput = aBtns[index].textContent;
+                if (userInput !== 'Prev' && userInput !== "Next") {
+                    current = Number(userInput);
+                };
+
+                if(userInput =="Next" || userInput == "Prev"){
+                    return;
+
+                };
+                // console.log(current)
+                console.log("only for numbers");
+                let input = Number(userInput);
+
+                // console.log("jhe");
+
+                let fItem = data.filter((item) => {
+                    return item.id == input;
+                });
+                display(fItem);
+            })
+
+        });
+
+        // aBtns[0].onclick = Next;
+        // aBtns[aBtns.length-1].onclick =  Prev;
+        // aBtns[0].removeEventListener("click", () => {
+
+
+        //     console.log("jhe");
+
+
+        // })
+
+        aBtns[0].addEventListener("click", Prev);
+        aBtns[length].addEventListener("click", Next);
+
+        function Next() {
+            console.log("only for next");
+            // console.log(current);
+            if (current < length) {
+                current++;
+
+            }
+            // console.log(current);
+            const fm = data.filter((item) => {
+                return item.id == current;
+            });
+            // console.log(fm);
+            display(fm)
+
+
+        }
+
+        function Prev() {
+
+
+            console.log("only for prev");
+            if (current > 1) {
+                current--;
+            }
+            // console.log(current);
+            const fItem = data.filter((item) => {
+                return item.id == current;
+            });
+            // console.log(fItem);
+            display(fItem);
+        }
+    // textContent gave full value including hidden text but innerText gave only txt meant without space value just only visible text.
+
+    </script>
+    <!-- <script src="./script.js" defer></script> -->
+</body>
+
+</html>
