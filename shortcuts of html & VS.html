@@ -1,30 +1,38 @@
 <!-- ul.list -->
 <ul class="list"></ul>
+_____________________________
 
 <!-- ul#id -->
 <ul id="id"></ul>
+_____________________________
+
 
 <!-- .content  -->
 <div class="content"></div>
+_____________________________
+
 
 <!-- #content  -->
 <div id="content"></div>
-
+_____________________________
 
 <!-- ul>li -->
 <ul>
     <li></li>
 </ul>
+______________________
 
 <!-- p>lorem  -->
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates blanditiis ipsam praesentium porro non possimus modi commodi saepe, quas molestiae quae ab hic eos. Soluta illo tempora consequatur dicta!</p>
-
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus voluptates blanditiis ipsam praesentium porro non
+    possimus modi commodi saepe, quas molestiae quae ab hic eos. Soluta illo tempora consequatur dicta!</p>
+______________________________________
 <!-- ul>li.list>a.link  -->
 
 <ul>
     <li class="list"><a href="" class="link"></a></li>
 </ul>
+______________________________
 
 <!-- ul>li*5  -->
 <ul>
@@ -35,10 +43,7 @@
     <li></li>
 </ul>
 
-<ul>
-    <li></li>
-    <li></li>
-</ul>
+__________________________________
 
 <!-- (ul>li)*5  -->
 
@@ -48,23 +53,25 @@
 <ul>
     <li></li>
 </ul>
+________________________________________________
 
 <!-- .brother>.alex+ .lee+.me  -->
 
 <div class="brother">
-    <div class="sister"></div>
-    <div class="kabutar"></div>
-    <div class="purak"></div>
-</div>
-<div class="brother">
+    <div class="alex"></div>
+    <div class="lee"></div>
     <div class="me"></div>
-    <div class="rahul"></div>
-    <div class="yes"></div>
 </div>
+_____________________________________________
 
 <!-- div>(header>ul>li*2>span.item)+sextion.content+(footer>p>lorem)*2  -->
+                                <!-- or -->
+<!-- div>(headaer>ul>li*2>span.item) + section.content+footer>p>lorem*2 -->
 
-<div>
+
+<!-- important note: in case of footer if you make a footer group in parenthesis and then add lorem value to 2 it wil add to following child but in case of not groupism then it will add span element to only one following element. -->
+
+<!-- 
     <header>
         <ul>
             <li><span class="item"></span></li>
@@ -76,19 +83,43 @@
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti consectetur asperiores, enim assumenda accusamus quia voluptatum porro, adipisci in repudiandae aut eum ratione, illum accusantium omnis hic. Ea, culpa ullam!</p>
         <p>Placeat vero molestias deleniti temporibus esse. Quam suscipit natus facere libero expedita error repudiandae fuga facilis laboriosam! Non nisi saepe obcaecati, enim consectetur possimus nihil placeat rem deserunt, repudiandae recusandae!</p>
     </footer>
-</div>
+</div> -->
+
+                                                    <!-- or -->
+
+<!-- <div>
+         <headaer>
+             <ul>
+                 <li><span class="item"></span></li>
+                 <li><span class="item"></span></li>
+             </ul>
+         </headaer>
+         <section class="content"></section>
+         <footer>
+             <p><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, dolorem error? Accusamus excepturi aut itaque, ea repellendus laboriosam illum dolores cum! Molestiae et ipsa error minima esse consequuntur. Ipsam, ducimus.</span><span>Aperiam fugiat optio, aliquid vitae fuga esse velit error. Similique, modi corporis repellendus, quod excepturi consequuntur aliquid delectus libero, mollitia numquam quisquam! Eos ipsa beatae qui? Similique suscipit quae possimus.</span></p>
+         </footer>
+     </div>
+
+<div> -->
+                                                            
+
+_______________________________________________________
+
 
 <!-- header>ul>li.item*3  -->
-<header>
+<!-- <header>
     <ul>
         <li class="item"></li>
         <li class="item"></li>
         <li class="item"></li>
     </ul>
-</header>
+</header> -->
+______________________________________
 
 <!-- span{im a span}  -->
 <span>im a span</span>
+
+______________________
 
 <!-- h$*6{im a heading $}  -->
 
@@ -99,6 +130,8 @@
 <h5>im a heading 5</h5>
 <h6>im a heading 6</h6>
 
+<!-- $ is iterator here  -->
+_____________________________
 
 <!-- div>div>h3+span^div{i can climb} -->
 <!-- div>div>h3+span^^div{i can climb} -->
@@ -109,6 +142,29 @@
     </div>
     <div>i can climb</div>
 </div>
+
+div>div>span>h1+div>section^h2^^footer{hiba}
+
+<!-- Note: operator after element matters . if you place two ^^ sign after one ^ sign then it will count for three sign for following sign. + operator exiting the previous element as child that meant just add him same like previous one. -->
+
+<!-- way to dentote arrow like follow element first then its arrow  -->
+
+<div>
+    <div>
+        <span>
+            <h1></h1>
+            <div>
+                <section></section>
+            </div>
+            <h2></h2>
+        </span>
+    </div>
+    <footer>hiba</footer>
+</div>
+
+
+
+______________________________________
 
 <!-- div>div>h4>span+span^^div{hello} -->
 
@@ -129,26 +185,28 @@
 </div>
 <div>i can climb</div>
 
+_____________________________________________ 
 
 <!-- from  codercoder -->
 
- <!-- control + keyupdown
-control+shift+keyupdown (to make screen up down)
+<!-- control + keyupdown
+control+alt+keyupdown (to make screen up down)
 control+shift+l
 ALT+ MOUSECLICK
 control + f for finding something inside the document. 
 add qutotation marks then add replace value with new one
 _________________________________
 control+shift+k
-control + \  & control + w
+control + \  & control + w  (to exit the current sheet )
 control + enter
 ALT+ shift+keyupdown
 control + d
 control + l
-control p+ @ element
+control p+ @ element ( : used for line number meant numeric digit expecting & @ used for symbol meant only element name)
 control+shift+p for chANGING SHORTCUTS OF KEYBOARD
-control + tab for shifting files
-window + tab for swtiching between files a
+control + tab for shifting files in vs
+window + tab for swtiching between files in window
 -->
 
 
+<!-- while typing just give stress to  mind to type meant think of typing then it will go in positive way -->

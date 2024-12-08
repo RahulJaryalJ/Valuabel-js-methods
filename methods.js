@@ -247,7 +247,7 @@
 // arra.splice(0,2, "hello world", "hello russian", "hello india" )
 
 // const arr = arra.splice(0,2, "hello world", "hello russian", "hello india" )
-// console.log(arra);
+// console.log(arr);
 
 
 // using splicing method we can store delted items in assiging new variables
